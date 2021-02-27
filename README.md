@@ -1,4 +1,4 @@
-# @convo-cupp-bridge
+# convo-cupp-bridge
 
 Bridgeport bridge for Convo User Profiles Protocol
 
