@@ -1,6 +1,6 @@
 {
   "name": "convo-cupp-bridge",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Bridgeport bridge for Convo CUPP",
   "main": "index.js",
   "repository": {
