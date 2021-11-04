@@ -1,27 +1,3 @@
-module.exports = {
-  bridgeport: '0.0.1',
-  name: 'Convo User Profiles Protocol',
-  description: 'Connect with people who use the Convo Messenger application',
-  version: '0.1.0',
-  routes: [],
-  requestTransformer: x => x,
-  responseTransformer: x => x,
-  defaultQuery: JSON.stringify({
-    v: 3,
-    q: {
-      collection: 'profiles',
-      find: {},
-      project: { name: 1 },
-      limit: 10
-    }
-  }, null, 2),
-  defaultSocket: JSON.stringify({
-    v: 3,
-    q: {
-      find: {}
-    }
-  }, null, 2),
-  readme: `
 # Convo User Profiles Protocol
 
 This document describes the blockchain protocol for dealing with user profiles
@@ -56,8 +32,4 @@ At least one transaction input must be signed (via R-puzzle or normal signature)
 
 ## Implementation
 
-This protocol has been implemented into a finite state machine using Bridgeport. The bus and bridge configurations can be found here:
-- [Convo CUPP Bus](https://github.com/p2ppsr/convo-cupp-bus)
-- [Convo CUPP Bridge](https://github.com/p2ppsr/convo-cupp-bridge)
-`
-}
+This protocol has been [implemented](https://github.com/p2ppsr/convo-cupp-bridge) into a finite state machine using [Bridgeport](https://bridgeport.babbage.systems).

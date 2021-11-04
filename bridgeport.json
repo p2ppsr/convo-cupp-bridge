@@ -1,0 +1,25 @@
+{
+  "bridgeport": "0.2.0",
+  "id": "16ibuBM9KzHav3sCXpxjV3bkvU3EXdmDWG",
+  "name": "Convo User Profiles Protocol",
+  "description": "Connect with people who use the Convo Messenger application",
+  "version": "1.0.0",
+  "repoToken": "W84+ox4ex4hGRbWA",
+  "reader": {
+    "runtime": "nodejs14",
+    "directory": "./reader"
+  },
+  "transformer": {
+    "runtime": "nodejs14",
+    "directory": "./transformer"
+  },
+  "filter": {
+    "startingBlockHeight": 676000,
+    "find": {
+      "out.i": 0,
+      "out.o0": "OP_0",
+      "out.o1": "OP_RETURN",
+      "out.s2": "1CUPPJ9Zjs2qCN2BYgAQzFPga66DYL7uFa"
+    }
+  }
+}
