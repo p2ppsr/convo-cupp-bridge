@@ -61,6 +61,12 @@ module.exports = async (state, action) => {
         collection: 'profiles',
         data
       })
+    if (action.live) {
+      await state.create({
+        collection: 'bridgeport_events',
+        data
+      })
+    }
   } catch (e) {
     console.error(`[!] ${action.tx.h}`)
     console.error(e)
