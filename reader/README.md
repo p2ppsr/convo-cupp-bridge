@@ -1,5 +1,8 @@
 # Convo User Profiles Protocol
 
+- [Query](./query)
+- [Socket](./socket)
+
 This document describes the blockchain protocol for dealing with user profiles
 
 ## Requisite Data
