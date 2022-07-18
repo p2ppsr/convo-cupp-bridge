@@ -1,0 +1,40 @@
+services:
+  connecticut:
+    image: us.gcr.io/computing-with-integrity/connecticut
+    ports:
+      - 3103:3103
+    environment:
+      HTTP_PORT: 3103
+      PORT: 3103
+
+  ## Convo Profiles Bridge
+  reader-6ibu:
+    hostname: "reader-16ibubm9kzhav3scxpxjv3bkvu3exdmdwg"
+    build: ../convo-cupp-bridge/reader
+    environment:
+      BRIDGE: 'eyJpZCI6IjE2aWJ1Qk05S3pIYXYzc0NYcHhqVjNia3ZVM0VYZG1EV0cifQ=='
+      PORT: 80
+      MONGODB_READ_CREDS: 'bW9uZ29kYjovL2JyaWRnZXBvcnQtbW9uZ286MzExMy9icmlkZ2VfMTZpYnVCTTlLekhhdjNzQ1hweGpWM2JrdlUzRVhkbURXRw=='
+      MONGODB_DATABASE: 'bridge_16ibuBM9KzHav3sCXpxjV3bkvU3EXdmDWG'
+  transformer-6ibu:
+    hostname: "transformer-16ibubm9kzhav3scxpxjv3bkvu3exdmdwg"
+    build: ../convo-cupp-bridge/transformer
+    environment:
+      PORT: 80
+      MONGODB_WRITE_CREDS: 'mongodb://bridgeport-mongo:3113/bridge_16ibuBM9KzHav3sCXpxjV3bkvU3EXdmDWG'
+      MONGODB_DATABASE: 'bridge_16ibuBM9KzHav3sCXpxjV3bkvU3EXdmDWG'
+
+  bridgeport-mongo:
+    image: mongo
+    command: mongod --port 3113 --quiet
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_SERVER: bridgeport-mongo
+      ME_CONFIG_MONGODB_PORT: 3113
+    depends_on:
+      - bridgeport-mongo
